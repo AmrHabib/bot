@@ -72,11 +72,11 @@
         var keyValuePair = queryParams[i].split("=");
         var key = keyValuePair[0];
         var value = keyValuePair[1];
-        
+         document.getElementById("div1").innerHTML= " مرحبا بك " & value & " يمكنك التحدث مع ربوت الدردشة بالضغط على الرمز والبدء";
         if (key === "user") {
           // If the key is 'user', this is the value we want
            console.log("The value of the input_text parameter is: " + value);
-            document.getElementById("div1").innerHTML= " مرحبا بك " & value & " يمكنك التحدث مع ربوت الدردشة بالضغط على الرمز والبدء";
+           
           break;
         }
       }
