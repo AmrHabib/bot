@@ -2,125 +2,144 @@
 <html dir="rtl" lang="ar">
 
 <head>
-<style>
-    
-    
-/* set arrow positioning */
-.arrow {
-	
-    /* position: absolute;  don't forget set container to relative 
+    <style>
+        /* set arrow positioning */
+        .arrow {
+
+            /* position: absolute;  don't forget set container to relative 
 	left: 95%;
 	margin-left: 0px;*/
-    position: absolute;
-    width: 60px;
-	height: 82px;
-    float: right;
-	bottom: 15%;
-     padding: 5px;
-  z-index:999;
-}
-/* set arrow styles */
-.arrow path {
-	stroke: #e74c3c;
-	stroke-width: 8px;
-	fill: transparent;	
-	animation: down 3s infinite;
-}
-/* arrow keyframe animation */
-@keyframes down{
-0% { opacity:0 }
-25% { opacity:1 }
-75% { opacity:0 }
-100% { opacity:0 }
-}
-/* arrow animation delay */
-.arrow path.a1{	animation-delay:-1s; }
-.arrow path.a2{	animation-delay:-.5s; }
-.arrow path.a3{	animation-delay:-0.25s; }
-    
-</style>
-       
+            position: absolute;
+            width: 60px;
+            height: 82px;
+            float: right;
+            bottom: 15%;
+            padding: 5px;
+            z-index: 999;
+        }
+
+        /* set arrow styles */
+        .arrow path {
+            stroke: #e74c3c;
+            stroke-width: 8px;
+            fill: transparent;
+            animation: down 3s infinite;
+        }
+
+        /* arrow keyframe animation */
+        @keyframes down {
+            0% {
+                opacity: 0
+            }
+
+            25% {
+                opacity: 1
+            }
+
+            75% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        /* arrow animation delay */
+        .arrow path.a1 {
+            animation-delay: -1s;
+        }
+
+        .arrow path.a2 {
+            animation-delay: -.5s;
+        }
+
+        .arrow path.a3 {
+            animation-delay: -0.25s;
+        }
+
+    </style>
+
 </head>
 
-<body>        
-<svg class="arrow">
-	<path class="a1" d="M0 0 L30 22 L60 0"></path>
-	<path class="a2" d="M0 20 L30 42 L60 20"></path>
-	<path class="a3" d="M0 40 L30 62 L60 40"></path>
-    
-</svg>
-<div  style="float: right;bottom: 30% ; padding: 5px;position: absolute;height: 200px ;width: 200px;border-style: solid;border-color: black">
- <p id="div1">
-	 يمكنك البدء بالتحدث بالضغط على الرمز 
-</p>
-</div>
-    
-<script src="https://github.com/Cognigy/WebchatWidget/releases/latest/download/webchat.js"></script>
-<script src="https://github.com/Cognigy/WebchatWidget/releases/download/v2.48.0/speech-input.webchat-plugin.js"></script>
-<script src="https://github.com/Cognigy/WebchatWidget/releases/download/v2.48.0/speech-output.webchat-plugin.js"></script>
+<body>
+    <svg class="arrow">
+        <path class="a1" d="M0 0 L30 22 L60 0"></path>
+        <path class="a2" d="M0 20 L30 42 L60 20"></path>
+        <path class="a3" d="M0 40 L30 62 L60 40"></path>
 
-   <script>
-	 
-      
-      var queryString = location.search;
-      
-      // Remove the '?' character from the beginning of the query string
-      queryString = queryString.substring(1);
-      
-      // Split the query string into separate key-value pairs
-      var queryParams = queryString.split("&");
-      
-      // Loop through each key-value pair and look for the one with the key 'input_text'
-      for (var i = 0; i < queryParams.length; i++) {
-        var keyValuePair = queryParams[i].split("=");
-        var key = keyValuePair[0];
-        
-	 //var value = keyValuePair[1]
-	 var valueA = keyValuePair[1].split("+");
-	 var value;
-	 
-	      for (var j=0;j<valueA.length; j++) {
-		      if (j>0){
-			value=	value + " "+  valueA[j];
-		      }else{
-			      value=	value +   valueA[j];
-		      }
-	 	}
-        if (key === "user") {
-          // If the key is 'user', this is the value we want
-          //console.log("The value of the input_text parameter is: " + value);
-          //document.getElementById("div1").innerHTML= " مرحبا بك " & value & " يمكنك التحدث مع ربوت الدردشة بالضغط على الرمز والبدء";
-          break;
+    </svg>
+    <div style="float: right;bottom: 30% ; padding: 5px;position: absolute;height: 200px ;width: 200px;border-style: solid;border-color: black">
+        <p id="div1">
+            يمكنك البدء بالتحدث بالضغط على الرمز
+        </p>
+    </div>
+
+    <script src="https://github.com/Cognigy/WebchatWidget/releases/latest/download/webchat.js"></script>
+    <script src="https://github.com/Cognigy/WebchatWidget/releases/download/v2.48.0/speech-input.webchat-plugin.js"></script>
+    <script src="https://github.com/Cognigy/WebchatWidget/releases/download/v2.48.0/speech-output.webchat-plugin.js"></script>
+
+    <script>
+        var queryString = location.search;
+
+        // Remove the '?' character from the beginning of the query string
+        queryString = queryString.substring(1);
+
+        // Split the query string into separate key-value pairs
+        var queryParams = queryString.split("&");
+
+        // Loop through each key-value pair and look for the one with the key 'input_text'
+        for (var i = 0; i < queryParams.length; i++) {
+            var keyValuePair = queryParams[i].split("=");
+            var key = keyValuePair[0];
+
+            //var value = keyValuePair[1]
+            var valueA = keyValuePair[1].split("+");
+            var value;
+
+            for (var j = 0; j < valueA.length; j++) {
+                if (j == 0) {
+                    value = valueA[j];
+                } else {
+                    value = value + " " + valueA[j];
+                }
+            }
+            if (key === "user") {
+                // If the key is 'user', this is the value we want
+                //console.log("The value of the input_text parameter is: " + value);
+                //document.getElementById("div1").innerHTML= " مرحبا بك " & value & " يمكنك التحدث مع ربوت الدردشة بالضغط على الرمز والبدء";
+                break;
+            }
         }
-      }
-       
-       
-      
-      const url =
-        "https://endpoint-trial.cognigy.ai/b3a7a7e5ffe65177de39cce02b46376b99a73c67aa41e931dd92b867942aba7d";
-      const settings = {
-        userId: value ,
-        settings: {
-          title: "Amr Habib",
-          enableSTT: true,
-          enableTTS: true,
-          disableBranding: true,
-          enableUnreadMessageTitleIndicator: true,
-          enableUnreadMessageSound: true,
-          colorScheme: "#2C6CAF",
-          showEngagementMessagesInChat: true,
-          startBehavior: "button",
-          getStartedButtonText: "ابدأ",
-          getStartedText: "ابدأ",
-          useSessionStorage: true
-        }
-      };
 
- initWebchat(url, settings);
 
-//initWebchat("https://endpoint-trial.cognigy.ai/b3a7a7e5ffe65177de39cce02b46376b99a73c67aa41e931dd92b867942aba7d");
 
-</script>
+        const url =
+            "https://endpoint-trial.cognigy.ai/b3a7a7e5ffe65177de39cce02b46376b99a73c67aa41e931dd92b867942aba7d";
+        const settings = {
+            userId: value,
+            settings: {
+                title: "Amr Habib",
+                enableSTT: true,
+                enableTTS: true,
+                disableBranding: true,
+                enableUnreadMessageTitleIndicator: true,
+                enableUnreadMessageSound: true,
+                colorScheme: "#2C6CAF",
+                showEngagementMessagesInChat: true,
+                startBehavior: "button",
+                getStartedButtonText: "ابدأ",
+                getStartedText: "ابدأ",
+                useSessionStorage: true
+            }
+        };
+
+        initWebchat(url, settings);
+
+        //initWebchat("https://endpoint-trial.cognigy.ai/b3a7a7e5ffe65177de39cce02b46376b99a73c67aa41e931dd92b867942aba7d");
+
+    </script>
 
 </body>
+
 </html>
