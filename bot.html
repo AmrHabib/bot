@@ -75,12 +75,16 @@
         var keyValuePair = queryParams[i].split("=");
         var key = keyValuePair[0];
         
-	 var value = keyValuePair[1]
+	 //var value = keyValuePair[1]
 	 var valueA = keyValuePair[1].split("+");
 	 var value;
 	 
 	      for (var j=0;j<valueA.length; j++) {
-		value=	value +  valueA[j];
+		      if (j>0){
+			value=	value + " "+  valueA[j];
+		      }else{
+			      value=	value +   valueA[j];
+		      }
 	 	}
         if (key === "user") {
           // If the key is 'user', this is the value we want
