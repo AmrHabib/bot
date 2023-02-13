@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ربوت دردشة </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        .img1 {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 200px;
+            
+}
+
+    </style>
+</head>
+
+<body  dir="rtl">
+     <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header" >
+بيانات المستخدم
+                    </div>
+                  
+<br>                    <img class="card-img-top rounded mx-auto d-block img1"  src="https://researcherbuilder.com/wp-content/chatbot/bot.JPG" alt="Card image cap">
+                       
+                    <div class="card-body">
+                        <form action="https://amrhabib.github.io/bot/index.html" method="get" onsubmit="return validateForm()">
+                            <div class="form-group" style="text-align: right">
+                                <label  for="user">اسم المستخدم:</label>
+                                <span class="required">*</span>
+                                <input  type="text" id="user" name="user" class="form-control">
+                            </div>
+                            <div id="error_message" class="error"></div>
+                            <br>
+                            <input type="submit" value="إبدأ" class="btn btn-primary" style="width:150px">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var inputText = document.getElementById("user").value;
+            var errorMessage = document.getElementById("error_message");
+
+            if (inputText === "") {
+                errorMessage.innerHTML = "لاستعادة بياناتك السابقة يجب ادخال اسم المستخدم ";
+                document.getElementById("user").focus();
+                document.getElementsByClassName("required")[0].style.display = "inline";
+                return false;
+            }
+
+            errorMessage.innerHTML = "";
+            return true;
+        }
+
+    </script>
+</body>
+
+</html>
