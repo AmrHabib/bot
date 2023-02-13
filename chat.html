@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+  <head>
+    <title>STT/TTS webchat</title>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/ava.png" />
+    <style>
+      html {
+        background-color: rgb(168, 45, 45);
+      }
+      [data-cognigy-webchat-root] [data-cognigy-webchat].webchat {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>
+      مرحبا بكم في
+    </h1>
+      
+ <script src="https://github.com/Cognigy/WebchatWidget/releases/latest/download/webchat.js"></script>
+    <script src="https://github.com/Cognigy/WebchatWidget/releases/download/v2.48.0/speech-input.webchat-plugin.js"></script>
+    <script src="https://github.com/Cognigy/WebchatWidget/releases/download/v2.48.0/speech-output.webchat-plugin.js"></script>
+   
+   
+    <script>
+      const url =
+        "https://webchat-trial.cognigy.ai/v2/b3a7a7e5ffe65177de39cce02b46376b99a73c67aa41e931dd92b867942aba7d";
+      const settings = {
+        userId: "stt-tts-hhh",
+        settings: {
+         // title: "Amr Habib",
+          enableSTT: true,
+          enableTTS: true,
+          disableBranding: true,
+          //unreadMessageTitleText: "New message",
+          //unreadMessageTitleTextPlural: "New messages",
+          enableUnreadMessageTitleIndicator: true,
+          enableUnreadMessageSound: true,
+          //colorScheme: "#2C6CAF",
+          //ratingTitleText: "please rate",
+          showEngagementMessagesInChat: true,
+          startBehavior: "button",
+          getStartedButtonText: "ابدأ",
+          getStartedText: "ابدأ",
+          useSessionStorage: true
+          //  ,menuItems["hi","hello"]
+        }
+      };
+
+      initWebchat(url, settings).then((webchat) => {
+        window.cognigyWebchat = webchat;
+        webchat.open();
+      });
+
+      // Hide the Open Sandbox button
+      window.setTimeout(() => {
+        Array.from(document.body.querySelectorAll("iframe"))
+          .filter((iframe) => iframe.id.startsWith("sb__open-sandbox"))
+          .forEach((iframe) => {
+            iframe.remove();
+            const div = document.createElement("div");
+            div.id = iframe.id;
+            div.style.setProperty("display", "none", "important");
+            document.body.appendChild(div);
+          });
+      }, 500);
+    </script>
+  </body>
+</html>
