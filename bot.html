@@ -76,6 +76,12 @@
         var key = keyValuePair[0];
         
 	 var value = keyValuePair[1]
+	 var valueA = keyValuePair[1].split("+");
+	 var value;
+	 
+	      for (var j=0;j<valueA.length; j++) {
+		value=	value +  valueA[j];
+	 	}
         if (key === "user") {
           // If the key is 'user', this is the value we want
           //console.log("The value of the input_text parameter is: " + value);
