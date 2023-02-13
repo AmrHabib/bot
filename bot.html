@@ -58,6 +58,7 @@
 <script src="https://github.com/Cognigy/WebchatWidget/releases/download/v2.48.0/speech-output.webchat-plugin.js"></script>
 
    <script>
+	    document.getElementById("div1").innerHTML= " مرحبا بك " & value & " يمكنك التحدث مع ربوت الدردشة بالضغط على الرمز والبدء";
        var msgdiv = document.getElementById("div1");
  var queryString = location.search;
       
@@ -76,7 +77,7 @@
         if (key === "user") {
           // If the key is 'user', this is the value we want
            console.log("The value of the input_text parameter is: " + value);
-           document.getElementById("div1").innerHTML= " مرحبا بك " & value & " يمكنك التحدث مع ربوت الدردشة بالضغط على الرمز والبدء";
+          
           break;
         }
       }
