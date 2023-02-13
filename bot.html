@@ -75,11 +75,7 @@
         var keyValuePair = queryParams[i].split("=");
         var key = keyValuePair[0];
         
-	 var valueA = keyValuePair[1].split("+");
-	      var value;
-	 for (var j=0;j<valueA.length; i++) {
-	value=	value +  valueA[j];
-	 }
+	 var value = keyValuePair[1]
         if (key === "user") {
           // If the key is 'user', this is the value we want
           //console.log("The value of the input_text parameter is: " + value);
